@@ -1,0 +1,52 @@
+
+
+<% if @state %>
+		<h1>Tech Jobs in <%= @state.name %></h1>
+	<% elsif @city %>
+	<h1>Tech Jobs in <%= @city.name %></h1>
+	<% else %>
+		<h1>Tech Jobs in All States & Cities</h1>
+<% end %>
+
+ <table>
+  <thead> 
+    <tr>
+      	 <th>Title</th>
+		<th>Description</th>
+		<th>State</th>
+		<th>City</th>
+		<th colspan="3"></th>
+  	  </tr>
+</thead>
+
+ 
+<h1>Listing Jobs</h1>
+<tbody>
+	 
+	<% @jobs.each do |job| %>
+	<% if job.state %>
+    	<tr>
+			<td><%= link_to job.title, job %></td>
+   			<td><%= job.description  %></td>
+	   		<td><%= link_to job.state.name, job %></td>
+			<td><%= link_to job.city.name, job %></td>
+        	<td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        	<td><%= link_to 'Edit', edit_job_path(job) %></td>
+		<!-- It's different syntax when you call a helper () not an array []  -->
+			<td><%= link_to 'Show', job%></td>
+			
+     	</tr>
+		<% end %>
+   	 <% end %>
+</tbody>
+</table>
+<p id="notice"><%#= notice %></p>
+
+<%= link_to 'New Job', new_job_path %>
+
+
+
+
+ 
+
+   

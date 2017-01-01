@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>City: <%= @city.name%>, <%=@city.state.abbreviation.upcase%></h1>
+
+<p>
+  <strong>Name:</strong>
+  <%= @city.name %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @city.state.name %>
+</p>
+
+<hr/>
+
+<h1>Tech Jobs in <%= @city.name%>, <%=@city.state.abbreviation.upcase%></h1>
+
+<% @city.jobs.each do |job| %>
+<li><%= link_to job.title, job%></li>
+
+<% end %>
+
+<%= link_to 'Edit', edit_city_path(@city) %> |
+<%= link_to 'Back', cities_path %>

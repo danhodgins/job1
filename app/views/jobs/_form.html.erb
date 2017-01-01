@@ -1,0 +1,76 @@
+<%= form_for(@job) do |f| %>
+<% if @job.errors.any? %>
+<div id="error_explanation">
+	<h2><%= pluralize(@job.errors.count, "error") %> prohibited this job from being saved:</h2>
+
+	<ul>
+		<% @job.errors.full_messages.each do |message| %>
+		<li><%= message %></li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+
+<div class="field">
+	<%= f.label :title %><br>
+	<%= f.text_field :title %>
+</div>
+<div class="field">
+	<%= f.label :description %><br>
+	<%= f.text_area :description %>
+</div>
+  
+<script>
+
+  
+$(document).ready(function() {
+	$('#job_state_id').change(function() {
+		//get the id of selected state
+		//state_id = "State " + "ID " + "= " + $(this).val();
+		//alert(state_id);
+		
+		$.ajax({
+			url: "/states/",
+			method: "get",
+			data: { 
+				format: "html"
+			},
+			error: alert("error"),
+			success: function(data){
+				//alert(data);
+				//console.log(data);
+				//console.log(JSON.stringify(data));
+				//console.log(aj);
+				//return data;
+			}; 
+		}); // ajax
+		
+	}); // change
+}); // doc 
+  
+  
+  
+</script>
+  
+<!--
+collection_select (method, collection, value_method, text_method, options = {}, html_options = {} ) 
+-->
+  
+ 
+<div class="field" >
+	<%= f.label :state_id %>
+	<%= f.collection_select :state_id, State.all, :id, :name, {:prompt => '-- Select a US State --'} %>
+</div>
+<div class="field">	
+	<%= f.label :city_id %>
+	<%= f.collection_select :city_id, City.all, :id, :name, {:prompt => '-- Select a US City --'} %>
+  
+	<%#= f.collection_select :city_id, State.cities, :id, :name, {:prompt => '-- Select a US City --'} %>
+  
+</div>
+  
+
+<div class="actions">
+	<%= f.submit %>
+</div>
+<% end %>

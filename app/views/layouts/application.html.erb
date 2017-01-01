@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Job1</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+	<!-- Called in Application Controller, need helper method there -->
+	<!--  -->
+
+
+	<span style="font-size: 200%;"><%#= link_to 'all'  %></span>
+	<% states.each do |state| %>
+	 	<span style="font-size:200%;">
+			<!-- Adding Extra Shit To URL -->
+			<%= link_to state.abbreviation, state_jobs_url(state, @jobs) %>
+		</span>
+	<% end %>
+	
+	<p><%#= link_to 'New Job', new_state_job_path %></p>
+
+<!-- Params Inspect -->
+<%= params.inspect %>
+
+	
+
+	
+     
+
+<%= yield %>
+
+</body>
+</html>

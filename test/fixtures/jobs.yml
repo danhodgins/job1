@@ -1,0 +1,44 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: Ruby on Rails Developer
+  description: MyText
+  state_id: 1
+  city_id: 1
+
+two:
+  title: JS Developer
+  description: MyText
+  state_id: 1
+  city_id: 1
+  
+three:
+  title: Node JS Developer
+  description: MyText
+  state_id: 1
+  city_id: 1
+  
+four:
+  title: Angular Developer
+  description: MyText
+  state_id: 1
+  city_id: 1
+  
+five:
+  title: React Developer
+  description: MyText
+  state_id: 1
+  city_id: 1
+
+six:
+  title: Java Developer
+  description: MyText
+  state_id: 1
+  city_id: 1
+
+seven:
+  title: Front End Web Developer
+  description: MyText
+  state_id: 1
+  city_id: 1
+

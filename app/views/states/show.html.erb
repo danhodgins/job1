@@ -1,0 +1,40 @@
+
+<!-- State#show == display all jobs for the given state -->
+<br/>
+<h1>State: <%= @state.name  %></h1>
+<%# @state.citys.each do |city| %>
+	<%#= link_to city.name, city %>
+<%# end %>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @state.name %>
+</p>
+
+<p>
+  <strong>Abbreviation:</strong>
+  <%= @state.abbreviation %>
+</p>
+
+<hr/>
+
+<h1>Tech Jobs in <%= @state.name %></h1>
+
+<% @state.jobs.each do |job| %>
+<li><%= link_to job.title, job %></li>
+<%= %>
+<%= %>
+
+<% end %>
+
+
+<%= link_to 'Edit', edit_state_path(@state) %> |
+<%= link_to 'Back', states_path %>
+
+<hr/>
+Cities in <%= @state.name %><br/>
+<% @state.citys.each do |city| %>
+<%= city.name %>
+<% end %>

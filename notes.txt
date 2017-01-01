@@ -1,0 +1,146 @@
+---
+
+SHORTCUTS 
+
+CMD + T = go to file
+CMD + L = go to line #
+CMD + Shift + T  = go to symbol – classes, methods
+
+
+
+---
+
+NOTES
+
+No API. No need for an API. Therefore no need to worry about routing. 
+
+
+REQUIREMENTS
+
+Show US states across the top - DONE 
+When on a state page, list the cities for that state - DONE
+
+SEO Slugs - change index and lookup - TO DO
+Pagination - US state pages
+More in-depth data on job objects
+
+Simple text editor with bold, italic, headings
+
+Twitter bootstrap for laptop and tablet styling (don't care about desktop and phones)
+
+Slugs - jobs 
+ 
+ TROUBLESHOOTING 
+ If cannot call city.jobs or state.jobs - check models - will be a has_many issue
+ 
+ class City < ActiveRecord::Base
+   belongs_to :state
+   has_many :jobs (this was missing)
+ end
+
+FIXTURES
+rake db:fixtures:load
+Ensure all ID's are appropriate, else errors. 
+
+--------------
+Fri Nov 4, 2016
+
+Added nested resources link_to's 
+	state#index
+Next: city#index
+
+-----
+Sat. Nov. 5, 2016
+Multiple nested routes to the same controller.
+http://stackoverflow.com/questions/15165474/multiple-nested-routes-to-the-same-controller-couldnt-find-xyz-without-an-id
+
+Nest routes through multiple controllers to DRY up your code
+Nested Routes Controllers
+https://everydayrails.com/2010/07/13/nested-routes-controllers.html
+
+you’re not limited to nesting a route under a single parent route. Rather, you can nest it under as many parents as you need to. You can also leave it un-nested.
+
+map.resources :authors,
+    :has_many => [ :posts ]
+  
+map.resources :categories,
+   :has_many => [ :posts ]
+    
+map.resources :posts
+
+-----------------
+Sat. Nov. 5, 2016
+JSON - API done! 
+
+Working for: 
+/states.json
+/cities.json
+/jobs.json
+/states/1/jobs.json
+/cities/1/jobs.json
+
+----------------
+Sat. Nov. 5, 2016
+
+Solved nested resources issue 
+Solution was multiple nested resources to one controller and
+parsing the request to determine if :city_id or :state_id and populating differet instance variables
+
+Can stick with Rails defaults in most places due to above. However, need to change some link_to parameters to make them work.
+
+-----------------
+Sat. Nov. 5, 2016
+
+Got Coffeescript working - alert when select clicked 
+In jobs.coffee, and /jobs/new 
+
+-----------------
+Sat. Nov. 5, 2016
+
+Assume the user will enter the correct state and city - no need to assume otherwise. If problem then solve later.
+
+-----------------
+Sat. Nov. 5, 2016
+
+Working from here for dynamic city state select using coffeescript rails jquery
+
+https://kernelgarden.wordpress.com/2014/02/26/dynamic-select-boxes-in-rails-4/
+
+Not working, but is fetching state ID for new job on jobs/new
+
+-----------------
+Tues. Nov. 8, 2016
+
+When I click a state link, I want to view tech jobs for that state
+
+How do I link to: state/:id/jobs? state_job_path
+
+-------------------
+Mon. Nov 28, 2016 - Morning 
+
+*** ISSUE: Not saving city_id for new job in job form
+
+If error message: 
+"NoMethodError undefined method `name' for nil:NilClass"
+One of your objects doesn't have an id. 
+For example, one of your job objects doesn't have a state_id. 
+
+
+Ruby on Rails - Railscasts PRO #88 Dynamic Select Menus (revised)
+https://www.youtube.com/watch?v=j1zZ4Lgzf9s
+Country, state - person 
+
+Right now, no way for Javascript to know which state a city belongs to
+grouped_collection_select - example below
+http://apidock.com/rails/ActionView/Helpers/FormOptionsHelper/grouped_collection_select
+
+search: "jquery get value of select"
+
+
+
+
+
+
+
+
+
