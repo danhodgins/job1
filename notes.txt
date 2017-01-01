@@ -136,7 +136,14 @@ http://apidock.com/rails/ActionView/Helpers/FormOptionsHelper/grouped_collection
 
 search: "jquery get value of select"
 
+-------------
+Sun. Jan 1, 2017 
 
+Heroku open command not working - because didn't do the following: 
+
+$ heroku rake db:migrate
+$ heroku run rake db:setup
+$ heroku open 
 
 
 

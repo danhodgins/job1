@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+root 'jobs#index'
 
   # this makes the correct routes (did rake routes)
   # state_jobs GET    /states/:state_id/jobs(.:format)          jobs#index
