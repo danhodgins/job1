@@ -145,6 +145,9 @@ $ heroku rake db:migrate
 $ heroku run rake db:setup
 $ heroku open 
 
+FIXTURES 
+heroku run rake db:fixtures:load
+
 
 
 
