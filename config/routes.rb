@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users
 root 'jobs#index'
 
   # this makes the correct routes (did rake routes)
