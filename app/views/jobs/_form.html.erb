@@ -24,33 +24,89 @@
 
   
 $(document).ready(function() {
+
 	$('#job_state_id').change(function() {
 		//get the id of selected state
-		//state_id = "State " + "ID " + "= " + $(this).val();
-		//alert(state_id);
+		//var state_id_alert = "State " + "ID " + "= " + $(this).val();
+		var state_id = $(this).val();
 		
+		//alert(state_id);
+	 
 		$.ajax({
-			url: "/states/",
+			
+			//WORKS
+			//url: "/states/1/jobs.json",
+			
+			//url: "/states/" + $(this).val() + "/cities.json",
+			//state_id = $(this).val();
+			//url: "/states/" + state_id + "/jobs",
+			url: "/states/" + state_id + "/cities",
 			method: "get",
 			data: { 
-				format: "html"
-			},
-			error: alert("error"),
+				format: "json" },
+			//error: alert("error"),
 			success: function(data){
-				//alert(data);
-				//console.log(data);
-				//console.log(JSON.stringify(data));
-				//console.log(aj);
-				//return data;
-			}; 
-		}); // ajax
+				//alert(state_id);
+				//console.log(data[0].title);
+				
+				//var options =
+			
+				var results = data; 
+				
+				console.log(JSON.stringify(data));
+				
+				//$('#job_city_id').html(); //html method
+					//"<select>"+"<option>" + results + "</option>"+"</select>"
+					/*
+						"<select>"+
+						$.each( results, function(index, value ) {
+							"<option>" + value.title + "</option>"
+							//console.log(sand);
+						})+"</select>" 
+						*/
+				
+				//FRIDAY: Now, the problem is states/3/cities is not returning the right list of cities by the state id - check the controller 
+				
+				var $jobCityID = $('#job_city_id');
+				$jobCityID.empty();
+				$.each(results, function(i, value) {
+					// you have include the append() call each time. "Append, append, append, append!""
+							$jobCityID.append("<option value=" +value.id + ">" + value.name + "</option>");
+						});
+				
+				
 		
+			
+			
+			} // success -- Only a curly brace is necessary here!!! 
+		
+		
+		
+		}); // ajax
+
+			
+
+
 	}); // change
+	
+
+	
+	
+	
 }); // doc 
   
   
   
 </script>
+
+<div>
+  <%# City.all.each do |city| %>
+	<%#= city.name %>
+  <%# end %>
+</div>
+
+
+
   
 <!--
 collection_select (method, collection, value_method, text_method, options = {}, html_options = {} ) 

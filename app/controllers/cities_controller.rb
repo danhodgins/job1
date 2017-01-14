@@ -4,8 +4,14 @@ class CitiesController < ApplicationController
   # GET /cities
   # GET /cities.json
   def index
-    @cities = City.all
+    if params[:state_id]
+      @cities = City.where(:state_id => params[:state_id] )
+    else
+      @cities = City.all
+    end 
   end
+  
+  
 
   # GET /cities/1
   # GET /cities/1.json

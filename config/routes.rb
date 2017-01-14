@@ -25,8 +25,8 @@ root 'jobs#index'
   
   
   
-
-  get 'states/:id/cities' => 'states#update_cities'
+  #state_cities
+ # get 'states/state_:id/cities' => 'states#cities'
   
 
   # could have done

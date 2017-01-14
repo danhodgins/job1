@@ -13,20 +13,21 @@ class StatesController < ApplicationController
   
   end
   
-  def update_cities
-    @cities = City.where("state_id = ?", params[:state_id])
-    respond_to do |format|
-      format.json
-      format.html
-    end
-  end
 
-  
-  # states/1/jobs = maps to the states controller and jobs action
+  # states/3/jobs = maps to the states controller and jobs action
   def jobs
     @state = State.find(params[:state_id])
     @jobs = @state.jobs 
   end
+  
+  # states/3/cities = maps to the states controller and jobs action
+  def cities
+    @state = State.find(params[:state_id])
+    @cities = @state.cities
+    
+  end
+  
+  
 
   # GET /states/new
   def new

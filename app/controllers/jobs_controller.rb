@@ -18,6 +18,7 @@ class JobsController < ApplicationController
     if params[:state_id]
       @jobs = State.find(params[:state_id]).jobs
       @state = State.find(params[:state_id])
+      @cities = State.find(params[:state_id]).cities
     elsif params[:city_id]
       @jobs = City.find(params[:city_id]).jobs
       @city = City.find(params[:city_id])
@@ -27,6 +28,7 @@ class JobsController < ApplicationController
 
   end
   
+
 
 
   # GET /jobs/1
