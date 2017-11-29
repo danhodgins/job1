@@ -19,9 +19,13 @@
   	  </tr>
 </thead>
 
+
  
 <h1>Listing Jobs</h1>
 <tbody>
+	
+	
+	
 	 
 	<% @jobs.each do |job| %>
 	<% if job.state %>
@@ -43,6 +47,53 @@
 <p id="notice"><%#= notice %></p>
 
 <%= link_to 'New Job', new_job_path %>
+
+<h2 style="font-size: 200%;"><%#= indeed_jobs["results"][0].jobtitle  %></h2>
+
+<h2 style="font-size: 200%;">
+	<!-- THIS WORKS -->
+	<%#= indeed_jobs["results"][0]["jobtitle"] %>
+</h2>
+
+<%# indeed_jobs["results"].each do |j| %>
+<tr>
+<td><%#= link_to j["jobtitle"] %></td>
+</tr>
+<%# end %>
+
+<hr/>
+
+
+<%# @indeed_jobs.each do |j| %>
+<tr>
+<td><%#= j["jobtitle"] %></td>
+</tr>
+<%# end %>
+
+<hr/>
+
+<%#= @j.title %>
+
+<!-- THIS WORKS -->
+<%#= @data %>
+
+
+<hr/>
+
+<h1><%#= Job.show_me %></h1>
+
+<h1><%#= Job.sm %></h1>
+
+
+
+
+
+
+
+
+
+
+
 
 
 

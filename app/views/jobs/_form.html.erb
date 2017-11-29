@@ -71,6 +71,7 @@ $(document).ready(function() {
 				$jobCityID.empty();
 				$.each(results, function(i, value) {
 					// you have include the append() call each time. "Append, append, append, append!""
+					// div is job_city_id
 							$jobCityID.append("<option value=" +value.id + ">" + value.name + "</option>");
 						});
 				
@@ -124,9 +125,28 @@ collection_select (method, collection, value_method, text_method, options = {}, 
 	<%#= f.collection_select :city_id, State.cities, :id, :name, {:prompt => '-- Select a US City --'} %>
   
 </div>
+
+
+<%= f.select :state_id, @states.map { |s| [s.name, s.id]   } %>
+
+
+
+
+
+
+
   
 
 <div class="actions">
 	<%= f.submit %>
 </div>
 <% end %>
+
+<h2>Job.all</h2>
+
+<%= javascript_tag do %>
+  var ha = "<%= Job.all %>";
+<% end %>
+
+
+

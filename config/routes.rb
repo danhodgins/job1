@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
   devise_for :users
-root 'jobs#index'
+
+  root 'jobs#index'
 
   # this makes the correct routes (did rake routes)
   # state_jobs GET    /states/:state_id/jobs(.:format)          jobs#index
@@ -25,8 +26,6 @@ root 'jobs#index'
   
   
   
-  #state_cities
- # get 'states/state_:id/cities' => 'states#cities'
   
 
   # could have done

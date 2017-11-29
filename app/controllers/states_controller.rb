@@ -14,13 +14,15 @@ class StatesController < ApplicationController
   end
   
 
-  # states/3/jobs = maps to the states controller and jobs action
+  # states/3/jobs = maps to the sstates controller and jobs action
+  # states/3/jobs.json 
   def jobs
     @state = State.find(params[:state_id])
     @jobs = @state.jobs 
   end
   
-  # states/3/cities = maps to the states controller and jobs action
+  # states/3/cities = maps to the states controller and cities action
+  # states/3/cities.json 
   def cities
     @state = State.find(params[:state_id])
     @cities = @state.cities
@@ -36,6 +38,7 @@ class StatesController < ApplicationController
 
   # GET /states/1/edit
   def edit
+    @states = State.all
   end
 
   # POST /states

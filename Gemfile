@@ -28,6 +28,8 @@ ruby '2.3.1'
 gem 'devise'
 gem "cancan"
 
+gem "indeed-ruby"
+
 # Rails Entity Relationship Diagram Gem - Type "rake erd" in console - http://rails-erd.rubyforge.org/install.html
 # gem "rails-erd"
 # bundle install

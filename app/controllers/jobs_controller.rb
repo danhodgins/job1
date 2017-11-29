@@ -1,4 +1,10 @@
+
+
+
 class JobsController < ApplicationController
+ 
+
+ 
   before_action :set_job, only: [:show, :edit, :update, :destroy]
 
   # GET /jobs
@@ -11,20 +17,29 @@ class JobsController < ApplicationController
   #check which param is in the request (might be :state_id, might be :city_id)
   
 
-  
+  #controller is the object, there is an instance of the class e.g. Job.
+ 
+
   
   def index
+    
+    # THIS WORKS 
+    #@data = Job.get_indeed_data
+
+     
+   
     
     if params[:state_id]
       @jobs = State.find(params[:state_id]).jobs
       @state = State.find(params[:state_id])
-      @cities = State.find(params[:state_id]).cities
+      @cities = State.find(params[:state_id]).citys
     elsif params[:city_id]
       @jobs = City.find(params[:city_id]).jobs
       @city = City.find(params[:city_id])
     else
       @jobs = Job.all
     end
+    
 
   end
   
@@ -42,10 +57,12 @@ class JobsController < ApplicationController
   # GET /jobs/new
   def new
     @job = Job.new
+    @states = State.all
   end
 
   # GET /jobs/1/edit
   def edit
+    @states = State.all
   end
 
   # POST /jobs

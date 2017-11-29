@@ -17,11 +17,22 @@
   </div>
  
      <div class="field">
-   <%= f.collection_select :state_id, State.all, :id, :name %>
+   <%#= f.collection_select :state_id, State.all, :id, :name %>
  </div>
+ 
+ 
+ 
+     <div class="field">
+	<!-- THIS WORKS!  -->
+   <%= f.select :state_id, @states.map { |s| [s.name, s.id] } %>
+ </div>
+ 
+ 
+ 
  
  
   <div class="actions">
     <%= f.submit %>
   </div>
+  
 <% end %>

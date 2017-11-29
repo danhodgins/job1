@@ -3,6 +3,8 @@ class CitiesController < ApplicationController
 
   # GET /cities
   # GET /cities.json
+  # GET /states/1/cities
+  # GET /states/1/cities.json 
   def index
     if params[:state_id]
       @cities = City.where(:state_id => params[:state_id] )
@@ -21,10 +23,12 @@ class CitiesController < ApplicationController
   # GET /cities/new
   def new
     @city = City.new
+    @states = State.all
   end
 
   # GET /cities/1/edit
   def edit
+    @states = State.all
   end
 
   # POST /cities
